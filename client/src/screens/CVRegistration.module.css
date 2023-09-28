@@ -1,0 +1,67 @@
+/* Estilo para el contenedor principal */
+.createApplicantPage {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo para el formulario */
+.formContainer {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Estilo para las etiquetas de los campos */
+.formContainer label {
+  font-weight: bold;
+}
+
+/* Estilo para los campos de entrada */
+#nombre,
+#email,
+#telefono,
+#ubicacion,
+#descripcionProfesional,
+#experienciaLaboral,
+#formacionAcademica,
+#nivelIngles,
+#habilidades,
+#seniorities,
+#linkPortafolio,
+#videoPresentacion,
+#twitter,
+#github,
+#gitlab,
+#linkedin,
+#stackOverflow {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para los mensajes de error de validación */
+span.error {
+  color: red;
+}
+
+/* Estilo para el botón de enviar */
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+  

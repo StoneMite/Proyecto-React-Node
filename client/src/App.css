@@ -1,0 +1,65 @@
+/* Estilo para el contenedor principal */
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Estilo para cada elemento de usuario (recuadro) */
+.users {
+  border: 1px solid #ccc; /* Borde alrededor del elemento */
+  padding: 10px; /* Espaciado interno para separar el contenido del borde */
+  margin: 10px; /* Margen exterior para separar los elementos */
+  width: 300px; /* Ancho del recuadro, ajusta según sea necesario */
+  background-color: #f9f9f9; /* Color de fondo para resaltar los elementos */
+}
+
+/* Estilo para el nombre de usuario */
+.username {
+  font-weight: bold; /* Hacer el texto en negrita, si lo deseas */
+}
+
+
+/* Estilo para la sección de solicitantes */
+.applicants {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+/* Estilo para otros elementos dentro de la sección de solicitantes (jobTitle, company, etc.) */
+.applicants div {
+  margin-bottom: 5px;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado interior */
+  display: flex; /* Mostrar elementos en línea */
+  justify-content: space-around; /* Distribuir elementos horizontalmente */
+}
+
+/* Estilo para los enlaces en la barra de navegación */
+.navbar a {
+  text-decoration: none; /* Quitar subrayado de los enlaces */
+  color: white; /* Color del texto de los enlaces */
+  font-weight: bold; /* Hacer el texto en negrita */
+  margin: 0 10px; /* Margen horizontal entre enlaces */
+}
+
+/* Estilo para los enlaces cuando se colocan sobre ellos */
+.navbar a:hover {
+  text-decoration: underline; /* Subrayar enlaces al pasar el ratón sobre ellos */
+}
+
+/* Define una regla para ocultar elementos con la clase "hidden" */
+.hidden {
+  display: true;
+}
+
