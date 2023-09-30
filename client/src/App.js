@@ -91,7 +91,6 @@
 // export default App;
 
 
-
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -150,14 +149,8 @@ function App() {
             {/* Siempre muestra los enlaces de registro y login */}
             <Link to="/login">Login</Link>
             <Link to="/registration">Registration</Link>
-            {/* <Link to="/admin"> AdminDashboard</Link> */}
-            {/* Verifica el rol del usuario antes de mostrar otras opciones */}
             {authState.status && (
-              <>
-                {authState.role === 'admin' && (
-                  <Link to="/admin">Admin Dashboard</Link>
-                )}
-              </>
+              <Link to="/admin">Admin Dashboard</Link>
             )}
           </div>
           <div className="loggedInContainer">
