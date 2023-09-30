@@ -1,3 +1,4 @@
+// este archivo ya no se utiliza
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
       username: {

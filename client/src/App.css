@@ -58,8 +58,8 @@
   text-decoration: underline; /* Subrayar enlaces al pasar el ratón sobre ellos */
 }
 
-/* Define una regla para ocultar elementos con la clase "hidden" */
+/* Define una regla para ocultar elementos con la clase "hidden"
 .hidden {
   display: true;
-}
+} */
 

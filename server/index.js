@@ -20,8 +20,11 @@ app.use("/users", postRouter);
 const applicantRouter = require("./routes/applicant");
 app.use("/applicant", applicantRouter);
 
-const usersRouter = require("./routes/usuario");
-app.use("/auth", usersRouter);
+// const usersRouter = require("./routes/usuario");
+// app.use("/auth", usersRouter);
+
+const utenteRouter = require("./routes/utente");
+app.use("/auth", utenteRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(3000, () => {
