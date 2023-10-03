@@ -90,7 +90,7 @@
 
 // export default App;
 
-
+//=====================================================================================
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -103,6 +103,7 @@ import axios from 'axios';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import AdminDashboard from './screens/AdminDashboard';
+import RequestReplacement from './screens/RequestReplacement';
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -145,12 +146,18 @@ function App() {
         <Router>
           <div className="navbar">
             <Link to="/">Home page</Link>
-            <Link to="/createCV">CV Registration</Link>
+            {authState.status && (
+              <Link to="/CVRegister">CV Registration</Link>
+            )}
+            
+            {authState.status && (
+              <Link to="/adminDashboard">Admin Dashboard</Link>
+            )}
             {/* Siempre muestra los enlaces de registro y login */}
             <Link to="/login">Login</Link>
             <Link to="/registration">Registration</Link>
             {authState.status && (
-              <Link to="/admin">Admin Dashboard</Link>
+              <Link to="/adminRequestReplacement">Solicitud de Reemplazo</Link>
             )}
           </div>
           <div className="loggedInContainer">
@@ -159,14 +166,16 @@ function App() {
           </div>
           <div>
             <Routes>
+              
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/createCV" element={<CVRegistration />} />
+              <Route path="/CVRegister" element={<CVRegistration />} />
               <Route path="/applicant/:id" element={<CVUnique />} />
-              {authState.role === 'admin' && (
+              {/* {authState.role === 'admin' && (
                 <Route path="/admin" element={<AdminDashboard />} />
-              )}
-              <Route path="/admin" element={<AdminDashboard />} />
+              )} */}
+              <Route path="/adminDashboard" element={<AdminDashboard />} />
+              <Route path="/adminRequestReplacement" element={<RequestReplacement />} />
               <Route path="/login" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
             </Routes>
@@ -178,3 +187,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

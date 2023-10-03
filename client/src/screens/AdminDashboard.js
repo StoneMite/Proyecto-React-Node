@@ -48,7 +48,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <h1 className="text-center">Admin Dashboard</h1><br/>
+      <h1 className="text-center">access to Admin Dashboard</h1><br/>
       {/* Agrega aquí el contenido del dashboard */}
     </div>
   );

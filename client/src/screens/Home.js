@@ -6,6 +6,7 @@ const Home = () => {
   // Comentarios modificados:
   const [users, setusers] = useState([]);
   const [applicants, setApplicants] = useState([]);
+  
   let navigate = useNavigate();
 
   useEffect(() => {

@@ -26,6 +26,9 @@ app.use("/applicant", applicantRouter);
 const utenteRouter = require("./routes/utente");
 app.use("/auth", utenteRouter);
 
+const replacementRouter = require("./routes/requestReplacement");
+app.use("/requestReplacement", replacementRouter);
+
 db.sequelize.sync().then(() => {
   app.listen(3000, () => {
     console.log("Server running on port 3000");
