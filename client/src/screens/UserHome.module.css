@@ -1,0 +1,31 @@
+/* UserHome.module.css */
+
+.Requests {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .Request {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Field {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .Label {
+    flex: 1;
+    font-weight: bold;
+  }
+  
+  .Value {
+    flex: 3;
+  }
+  
+  /* Agrega estilos para otros campos según sea necesario */
+  

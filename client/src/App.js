@@ -102,8 +102,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './components/Login';
 import Registration from './components/Registration';
-import AdminDashboard from './screens/AdminDashboard';
+import AdminDashboard from './screens/AdminHome';
 import RequestReplacement from './screens/RequestReplacement';
+import UserDashboard from './screens/UserHome';
+import RequestReplacementUnique from './screens/RequestReplacementUnique';
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -151,8 +153,13 @@ function App() {
             )}
             
             {authState.status && (
-              <Link to="/adminDashboard">Admin Dashboard</Link>
+              <Link to="/adminDashboard">Admin Home</Link>
             )}
+
+            {authState.status && (
+              <Link to="/userDashboard">User Home</Link>
+            )}
+
             {/* Siempre muestra los enlaces de registro y login */}
             <Link to="/login">Login</Link>
             <Link to="/registration">Registration</Link>
@@ -171,11 +178,10 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/CVRegister" element={<CVRegistration />} />
               <Route path="/applicant/:id" element={<CVUnique />} />
-              {/* {authState.role === 'admin' && (
-                <Route path="/admin" element={<AdminDashboard />} />
-              )} */}
+              <Route path="/requestReplacement/:id" element={<RequestReplacementUnique />} />
               <Route path="/adminDashboard" element={<AdminDashboard />} />
               <Route path="/adminRequestReplacement" element={<RequestReplacement />} />
+              <Route path="/userDashboard" element={<UserDashboard/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
             </Routes>

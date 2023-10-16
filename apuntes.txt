@@ -1,0 +1,28 @@
+campos puntuables a aniadir en ambos roles: 
+SUGERENCIA: puedes implementar que en el admin pueda agrear o eliminar campos
+
+los campos puntuables a aniadir son:
+seniority en ambos, junior-senior
+habilidades en ambos, habilidad 1, habilidad 2, habilidad 4 (puede ser)
+
+
+Enfoque 1: Comparación de Campos Similares
+
+La solicitud de reemplazo solo está disponible para la cuenta de administrador.
+El administrador crea una solicitud de reemplazo con varios campos, incluidos los que son puntuables (como nivel de inglés).
+Los usuarios pueden ver esta solicitud de reemplazo y, si están interesados, pueden aplicar. Para aplicar, llenarán un formulario con información relevante (sus currículos).
+El sistema compara la información proporcionada por los usuarios en sus currículos con los campos de la solicitud de reemplazo.
+Se asigna una puntuación en función de cuántos campos coinciden entre los currículos de los usuarios y la solicitud de reemplazo.
+Los usuarios son ordenados en función de sus puntuaciones, y los que tienen más coincidencias aparecen primero en la lista.
+Enfoque 2: Personalización de Campos Mostrados
+
+La solicitud de reemplazo solo está disponible para la cuenta de administrador.
+El administrador crea una solicitud de reemplazo con varios campos, incluidos los que son puntuables (como nivel de inglés).
+Los usuarios pueden ver esta solicitud de reemplazo y, si están interesados, pueden aplicar.
+Cuando los usuarios aplican, el sistema les muestra una versión personalizada del formulario de solicitud de reemplazo. Esta versión solo muestra los campos puntuables y aquellos campos que el administrador ha permitido que los usuarios llenen.
+Los usuarios completan el formulario con información relevante, incluyendo los campos puntuables.
+El sistema asigna puntuaciones y realiza la ponderación en función de los campos completados por los usuarios en el formulario personalizado.
+Los usuarios son ordenados en función de sus puntuaciones, y los que tienen más coincidencias aparecen primero en la lista.
+
+tambien pense en otra forma que seria que cuando la solicitud de reeemplazo fuese emitida se va a poder ver por todos los usuario y
+ luego cuando entre en ese recuadro van a ver un boton que diga postular y cuando le den clic van a llenar un formulario similar a un curriculum que va atener campos puntuables, luego tendria que capturar esos datos y procesarlos para el ponderamiento?

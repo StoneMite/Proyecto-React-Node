@@ -28,27 +28,33 @@ const CVUnique = () => {
         <div>{uniqueCV.company}</div>
       </div>
       <div className={styles.CVField}>
-        <label>Start Date:</label>
-        <div>{uniqueCV.startDate}</div>
-      </div>
-      <div className={styles.CVField}>
-        <label>End Date:</label>
-        <div>{uniqueCV.endDate}</div>
-      </div>
-      <div className={styles.CVField}>
         <label>Description:</label>
         <div className={styles.CVDescription}>{uniqueCV.description}</div>
       </div>
-      <div className={styles.CVField}>
-        <label>Skills:</label>
-        <div className={styles.CVLargeText}>{uniqueCV.skills}</div>
-      </div>
+      
       <div className={styles.CVField}>
         <label>Education:</label>
         <div className={styles.CVLargeText}>{uniqueCV.education}</div>
       </div>
+      <div className={styles.CVField}>
+        <label>Years of Experience:</label>
+        <div>{uniqueCV.yearsExperience}</div>
+      </div>
+      <div className={styles.CVField}>
+        <label>Language Skills:</label>
+        <div>{uniqueCV.languageSkills}</div>
+      </div>
+      <div className={styles.CVField}>
+        <label>Certifications:</label>
+        <div>{uniqueCV.certifications}</div>
+      </div>
+      <div className={styles.CVField}>
+        <label>Technical Skills:</label>
+        <div>{uniqueCV.technicalSkills}</div>
+      </div>
     </div>
   );
+  
 }
 
 export default CVUnique;
