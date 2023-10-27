@@ -7,9 +7,9 @@ const cors = require('cors');
 //la linea de abajo solo sirve para poder utilizar insomnia y que devuelva los valores en formato json
 //y que tambien los introduzca en la tabla
 
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
 
 const db = require("./models");
 

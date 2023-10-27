@@ -106,6 +106,9 @@ import AdminDashboard from './screens/AdminHome';
 import RequestReplacement from './screens/RequestReplacement';
 import UserDashboard from './screens/UserHome';
 import RequestReplacementUnique from './screens/RequestReplacementUnique';
+// import CvEdit from './screens/CvEdit';
+import CvForm from './screens/CvForm';
+import CvEditForm from './screens/CvEditForm';
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -151,7 +154,13 @@ function App() {
             {authState.status && (
               <Link to="/CVRegister">CV Registration</Link>
             )}
-            
+            {authState.status && (
+              <Link to="/cv-form/:id">CV fromlario</Link>
+            )}
+            {/* {authState.status && (
+              <Link to="/CvEdit">Editar CV</Link>
+            )} */}
+
             {authState.status && (
               <Link to="/adminDashboard">Admin Home</Link>
             )}
@@ -184,6 +193,9 @@ function App() {
               <Route path="/userDashboard" element={<UserDashboard/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
+              {/* <Route path="/CvEdit" element={<CvEdit/>}/> */}
+              <Route path="/cv-form/:id" element={<CvForm />} />
+              <Route path="/cv-edit-form/:id" element={<CvEditForm />} />
             </Routes>
           </div>
         </Router>

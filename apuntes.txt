@@ -26,3 +26,42 @@ Los usuarios son ordenados en función de sus puntuaciones, y los que tienen má
 
 tambien pense en otra forma que seria que cuando la solicitud de reeemplazo fuese emitida se va a poder ver por todos los usuario y
  luego cuando entre en ese recuadro van a ver un boton que diga postular y cuando le den clic van a llenar un formulario similar a un curriculum que va atener campos puntuables, luego tendria que capturar esos datos y procesarlos para el ponderamiento?
+
+
+
+ ======================================================================
+ Entendido, si la vista CVRegistration solo permite que los usuarios creen nuevos currículums y no muestra ningún currículum existente, entonces es una buena idea crear una vista adicional para la edición de currículums y otra vista para listar los currículums existentes.
+
+Aquí tienes una sugerencia de cómo podrías organizar tus vistas y flujos:
+
+Crear Curriculum (CVRegistration): Esta vista ya la tienes y permite a los usuarios crear nuevos currículums. Puedes seguir usándola para este propósito.
+
+Editar Curriculum (CvEdit): Crea una nueva vista llamada CvEdit que permita a los usuarios editar un currículum existente. En esta vista, los usuarios deberían poder cargar su currículum existente y realizar modificaciones. Puedes acceder a esta vista desde un botón "Editar Curriculum" en la vista de lista de currículums.
+
+Listar Currículums (CvList): Crea una vista llamada CvList que muestre una lista de currículums existentes. Junto a cada currículum en la lista, agrega botones de "Editar" y "Eliminar" para permitir a los usuarios realizar estas operaciones. Desde esta vista, puedes acceder a la vista de edición o eliminación de currículums.
+
+Vista de Usuario (UserHome): En la vista de usuario, puedes agregar botones para "Crear Curriculum" y "Ver Currículums". El botón "Crear Curriculum" te dirigirá a la vista de CVRegistration, donde los usuarios pueden crear un nuevo currículum. El botón "Ver Currículums" te llevará a la vista CvList, donde podrás ver la lista de currículums existentes y realizar operaciones de edición y eliminación.
+
+Esta organización te permitirá separar claramente la creación, edición y visualización de currículums, lo que es una práctica común y efectiva en la gestión de datos. Además, es más intuitivo para los usuarios.
+
+
+
+
+Aquí hay una guía paso a paso de cómo puedes abordar esto:
+
+Página de Lista de Currículums (CurriculumList): Crea una nueva vista o componente llamado CurriculumList. En esta vista, puedes hacer lo siguiente:
+
+Consultar la base de datos o el servidor para obtener una lista de todos los currículums disponibles.
+Muestra estos currículums en una lista o tabla, junto con opciones para "Editar" y "Eliminar".
+Cuando un usuario hace clic en "Editar", puedes dirigirlo a la vista de edición de currículum (CvEdit) y pasarle el ID del currículum que desea editar.
+Vista de Edición de Currículum (CvEdit): Como mencionaste antes, esta vista permitirá a los usuarios cargar su currículum existente y realizar modificaciones. Deberías usar las dependencias Formik, Yup, axios, y las validaciones de datos como mencioné anteriormente.
+
+Eliminar Currículum: En la vista de lista de currículums, cuando un usuario hace clic en "Eliminar", puedes enviar una solicitud al servidor para eliminar el currículum específico por su ID. Asegúrate de confirmar la acción con el usuario antes de eliminar el currículum.
+
+Actualizar la Vista de Registro de Currículum (CVRegistration): En la vista de registro de currículum, también puedes agregar un enlace o botón para "Editar Currículum Existente". De esta manera, los usuarios pueden optar por cargar un currículum nuevo o editar uno existente.
+
+Al seguir estos pasos, estarás proporcionando a los usuarios una forma completa de gestionar sus currículums, lo que mejora significativamente la funcionalidad de tu aplicación.
+
+Por favor, avísame si necesitas ejemplos de código o ayuda específica en cualquiera de estos pasos.
+
+

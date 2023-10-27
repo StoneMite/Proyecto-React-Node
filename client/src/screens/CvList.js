@@ -1,0 +1,50 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+//Aun no esta desarrollado, no puede haber un cv list ya que es un solo curriculum por persona
+//lo que podria hacerse es colocar los botones en CVRegistration para luego ahi colocar crear
+//curriculum, editar cv, elimnar cv, ver cv, hasta que se cierre la solicitud de reeemplazo.
+const Home = () => {
+  // Comentarios modificados:
+
+  const [applicants, setApplicants] = useState([]);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+  
+    // Realizar una solicitud GET para obtener solicitantes (applicants)
+    axios.get('http://localhost:3000/applicant')
+      .then((response) => {
+        setApplicants(response.data);
+      })
+      .catch((error) => {
+        console.error('Error al obtener solicitantes:', error);
+      });
+  }, []);
+
+  return (
+    <div className="App">
+      {/* Comentarios modificados: */}
+      <div>
+        <h2>Solicitantes</h2>
+        {applicants.map((value, key) => (
+          <div className="formApplicant" onClick={() => { navigate(`/applicant/${value.id}`); }} key={key}>
+            <div className="applicants">
+              <div className="jobTitle">{value.jobTitle}</div>
+              <div className="company">{value.company}</div>
+              <div className="description">{value.description}</div>
+              <div className="education">{value.education}</div>
+              <div className="yearsExperience">{value.yearsExperience}</div>
+              <div className="certifications">{value.certifications}</div>
+              <div className="technicalSkills">{value.technicalSkills}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;

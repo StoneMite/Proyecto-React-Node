@@ -43,24 +43,52 @@ const router = express.Router();
 const applicantController = require("../controllers/applicantController");
 const validationMiddleware = require('../middlewares/validationMiddleware');
 const {validateToken} = require('../middlewares/newAuthMiddleware');
+// // Ruta para obtener todos los solicitantes
+// router.get("/", applicantController.getAllApplicants);
+
+// // Ruta para obtener un solicitante por su ID/ ES PAR OBTENER UN CURRICULUM
+// router.get("/ByID/:id", applicantController.getApplicantById);
+
+// // Ruta para registrar un nuevo solicitante/SUBIR NUEVO CURRICULUM
+// router.post("/", applicantController.createApplicant);
+
+// // Ruta para actualizar un solicitante por su ID/ACTUALIZAR EL CURRCIULUM
+// router.put("/ByID/:id", validateToken, applicantController.updateApplicantById);
+
+// // Ruta para eliminar un solicitante por su ID
+// router.delete("/ByID/:id", validateToken, applicantController.deleteApplicantById);
+
+// // Ruta protegida: Solo los usuarios autenticados pueden crear un solicitante
+// router.post('/', validateToken, validationMiddleware.validateApplicantData, applicantController.createApplicant);
+
+// Otras rutas relacionadas con los solicitantes pueden usar el middleware de autenticación según sea necesario
+//=============================================================================
+
+
+/*aqui al momento de darle al boton de crear el curriculum no estan pasando el validateToken ni el validation Middleware
+HACERLO CON VALIDATOKEN NO DA TANTO PROBLEMA, HACERLO CON EL VALIDATION MIDDLEWARE SI DA MAS PROBLEMAS */
+// // Ruta protegida: Solo los usuarios autenticados pueden crear un solicitante(especifico)
+// router.post('/', validateToken, validationMiddleware.validateApplicantData, applicantController.createApplicant);
+// Ruta para registrar un nuevo solicitante/SUBIR NUEVO CURRICULUM(original)
+router.post("/", validateToken, applicantController.createApplicant);
+// Ruta para obtener un currículum por su ID (se requiere autenticación(mas especifico))
+router.get("/byID/:id", validateToken, applicantController.getApplicantById);
+
+// Ruta para obtener un solicitante por su ID/ ES PAR OBTENER UN CURRICULUM(original)
+// router.get("/ByID/:id", applicantController.getApplicantById);
+
+
 // Ruta para obtener todos los solicitantes
 router.get("/", applicantController.getAllApplicants);
 
-// Ruta para obtener un solicitante por su ID/ ES PAR OBTENER UN CURRICULUM
-router.get("/ByID/:id", applicantController.getApplicantById);
+// Ruta para actualizar un currículum por su ID (se requiere autenticación)
+router.put("/byID/:id", validateToken, applicantController.updateApplicantById);
 
-// Ruta para registrar un nuevo solicitante/SUBIR NUEVO CURRICULUM
-router.post("/", applicantController.createApplicant);
+// Ruta para eliminar un currículum por su ID (se requiere autenticación)
+router.delete("/byID/:id", validateToken, applicantController.deleteApplicantById);
 
-// Ruta para actualizar un solicitante por su ID/ACTUALIZAR EL CURRCIULUM
-router.put("/ByID/:id", validateToken, applicantController.updateApplicantById);
 
-// Ruta para eliminar un solicitante por su ID
-router.delete("/ByID/:id", validateToken, applicantController.deleteApplicantById);
-
-// Ruta protegida: Solo los usuarios autenticados pueden crear un solicitante
-router.post('/', validateToken, validationMiddleware.validateApplicantData, applicantController.createApplicant);
-
-// Otras rutas relacionadas con los solicitantes pueden usar el middleware de autenticación según sea necesario
+// Ruta para obtener información del usuario y su currículum
+router.get("/user-with-cv", validateToken, applicantController.getUserWithCV);
 
 module.exports = router;

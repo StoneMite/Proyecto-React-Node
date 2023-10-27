@@ -21,13 +21,13 @@
 // };
 
 // module.exports = { validateToken };
-
+// /////////////////////////////////////////////////////////////////////
 const { verify } = require("jsonwebtoken");
 
 const validateToken = (req, res, next) => {
   const accessToken = req.header("accessToken");
 
-  if (!accessToken) return res.json({ error: "User not logged in!" });
+  if (!accessToken) return res.json({ error: "User not logged in! desde el servidor" });
 
   try {
     const validToken = verify(accessToken, "importantsecret");
@@ -39,3 +39,23 @@ const validateToken = (req, res, next) => {
 };
 
 module.exports = { validateToken };
+// ///////////////////////////////////////////////////////////////////
+//con la verificacoin de abajo dejas todo libre para acceder a distintas rutas y ya no obtienes el error user not logged in
+// const { verify } = require("jsonwebtoken");
+
+// const validateToken = (req, res, next) => {
+//   const accessToken = req.header("accessToken");
+
+//   // Verifica si se proporcionó un token de acceso, si no, continúa sin autenticación
+//   if (!accessToken) return next();
+
+//   try {
+//     const validToken = verify(accessToken, "importantsecret");
+//     req.user = validToken;
+//     return next();
+//   } catch (err) {
+//     return res.json({ error: "Invalid token" });
+//   }
+// };
+
+// module.exports = { validateToken };

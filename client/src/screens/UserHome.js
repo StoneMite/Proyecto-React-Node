@@ -28,6 +28,7 @@ const UserDashboard = () => {
       },
     })
       .then((response) => {
+        console.log("Respuesta del servidor en userhome:", response.data);
         if (!response.data.error) {
           setAuthState({
             username: response.data.username,

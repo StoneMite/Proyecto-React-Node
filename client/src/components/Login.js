@@ -51,7 +51,7 @@
 // export default Login;
 
 
-
+////////////////////////////////////////////////////////////////
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -71,12 +71,15 @@ function Login() {
         alert(response.data.error);
       } else {
         localStorage.setItem("accessToken", response.data.token);
+        console.log(" el token es: ", response.data.token)
+        console.log("Respuesta del servidor:", response.data);
         setAuthState({
           username: response.data.username,
           id: response.data.id,
-          status: true,
+          status: true,// o true
           role: response.data.role, // Agregar el campo "role"
         });
+        
         navigate("/");
       }
     });
@@ -107,3 +110,5 @@ function Login() {
 }
 
 export default Login;
+
+

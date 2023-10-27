@@ -6,7 +6,6 @@ const Joi = require('joi');
 const applicantSchema = Joi.object({
   jobTitle: Joi.string().required(),
   company: Joi.string().required(),
-  startDate: Joi.date().required(),
   // Agrega más validaciones según tus necesidades
 });
 

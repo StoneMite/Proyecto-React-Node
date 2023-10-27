@@ -1,0 +1,15 @@
+/* CvEditStyles.css */
+.createCvButton {
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Texto en blanco */
+    padding: 10px 20px; /* Espaciado del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de selección */
+    margin-left: 40px;
+  }
+  
+ .createCvButton:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el mouse */
+  }
+  

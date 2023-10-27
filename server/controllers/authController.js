@@ -11,10 +11,11 @@ exports.registerUser = async (req, res) => {
       username: username,
       password: hashedPassword,
       role: role || "user",
+      status: 'registered', // Asegúrate de establecer status en 'registered'
     });
     res.json("SUCCESS");
   } catch (error) {
-    res.status(500).json({ error: "Registration failed" });
+    res.status(500).json({ error: " registro fallido desde el servidor" });
   }
 };
 
@@ -30,7 +31,7 @@ exports.loginUser = async (req, res) => {
     if (!match) {
       return res.json({ error: "Wrong Username And Password Combination" });
     }
-
+    console.log("User ID:", user.id); // Agrega este log
     const accessToken = sign(
       { username: user.username, id: user.id, role: user.role },
       "importantsecret"
@@ -40,3 +41,4 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 };
+
