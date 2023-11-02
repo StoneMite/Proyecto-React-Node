@@ -56,6 +56,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/newAuthContext";
+import styles from "./Login.module.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -88,7 +89,7 @@ function Login() {
 
   
   return (
-    <div className="loginContainer">
+    <div className={styles.data}>
       <label>Username:</label>
       <input
         type="text"
@@ -104,7 +105,7 @@ function Login() {
         }}
       />
 
-      <button onClick={login}> Login </button>
+      <button onClick={login} className={styles.submitButton}> Iniciar sesión </button>
     </div>
   );
 }

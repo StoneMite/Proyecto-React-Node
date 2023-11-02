@@ -1,11 +1,35 @@
 /* Estilo para el contenedor principal */
 .App {
+  box-sizing: content-box;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px ;
+  height: 938px;
+  background-image: linear-gradient(135deg,#00B7D4,#505488,#2F3F80,#235a82,#69a3e1);
+  background-size: 500%;
+  animation: fondo 10s infinite;
 }
 
+/* Estilo para el contenedir de usuarios y solicitantes*/
+.app{
+  margin-top: 20px;
+  box-sizing: content-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px ;
+  background-color: #a4bec28c;
+  height: auto;
+  width:300px ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0), 0 6px 20px;
+}
+
+.app h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 /* Estilo para cada elemento de usuario (recuadro) */
 .users {
@@ -14,21 +38,27 @@
   margin: 10px; /* Margen exterior para separar los elementos */
   width: 300px; /* Ancho del recuadro, ajusta según sea necesario */
   background-color: #f9f9f9; /* Color de fondo para resaltar los elementos */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Estilo para el nombre de usuario */
 .username {
   font-weight: bold; /* Hacer el texto en negrita, si lo deseas */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
 /* Estilo para la sección de solicitantes */
 .applicants {
+  box-sizing: border-box;
+  justify-content: center;
   border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 10px;
   margin: 10px;
   width: 300px;
   background-color: #f9f9f9;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Estilo para otros elementos dentro de la sección de solicitantes (jobTitle, company, etc.) */
@@ -38,18 +68,20 @@
 
 /* Estilo para la barra de navegación */
 .navbar {
-  background-color: #007bff; /* Color de fondo */
+  background-color: #113255; /* Color de fondo */
   color: white; /* Color del texto */
   padding: 10px; /* Espaciado interior */
   display: flex; /* Mostrar elementos en línea */
+  width: 100%;
   justify-content: space-around; /* Distribuir elementos horizontalmente */
 }
 
 /* Estilo para los enlaces en la barra de navegación */
 .navbar a {
   text-decoration: none; /* Quitar subrayado de los enlaces */
-  color: white; /* Color del texto de los enlaces */
+  color: rgb(205, 225, 234); /* Color del texto de los enlaces */
   font-weight: bold; /* Hacer el texto en negrita */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 0 10px; /* Margen horizontal entre enlaces */
 }
 
@@ -63,3 +95,16 @@
   display: true;
 } */
 
+/*animacion para fondo de aplicacion*/
+@keyframes fondo {
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+  
+}

@@ -32,7 +32,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="app">
       {/* Comentarios modificados: */}
       <div>
         <h2>Usuarios</h2>

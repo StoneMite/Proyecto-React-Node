@@ -155,7 +155,7 @@ function App() {
               <Link to="/CVRegister">CV Registration</Link>
             )}
             {authState.status && (
-              <Link to="/cv-form/:id">CV fromlario</Link>
+              <Link to="/cv-form/:id">CV formulario</Link>
             )}
             {/* {authState.status && (
               <Link to="/CvEdit">Editar CV</Link>
@@ -170,8 +170,8 @@ function App() {
             )}
 
             {/* Siempre muestra los enlaces de registro y login */}
-            <Link to="/login">Login</Link>
-            <Link to="/registration">Registration</Link>
+            <Link to="/login">Iniciar Sesion</Link>
+            <Link to="/registration">Registrar</Link>
             {authState.status && (
               <Link to="/adminRequestReplacement">Solicitud de Reemplazo</Link>
             )}
