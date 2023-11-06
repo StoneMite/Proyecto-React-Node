@@ -14,20 +14,26 @@ app.use(express.json());
 const db = require("./models");
 
 // //Routers
-const postRouter = require("./routes/users");
-app.use("/users", postRouter);
+// const postRouter = require("./routes/users");
+// app.use("/users", postRouter);
 
 const applicantRouter = require("./routes/applicant");
 app.use("/applicant", applicantRouter);
-
-// const usersRouter = require("./routes/usuario");
-// app.use("/auth", usersRouter);
 
 const utenteRouter = require("./routes/utente");
 app.use("/auth", utenteRouter);
 
 const replacementRouter = require("./routes/requestReplacement");
 app.use("/requestReplacement", replacementRouter);
+
+const punctuationRouter = require("./routes/punctuation");
+app.use("/punctuation", punctuationRouter);
+
+const calculateAllScoresRouter = require("./routes/calculateAllScoresController");
+app.use("/calculate-scores", calculateAllScoresRouter);
+
+const postulationRouter = require("./routes/postulationController");
+app.use("/postulate", postulationRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(3000, () => {

@@ -36,7 +36,7 @@ exports.loginUser = async (req, res) => {
       { username: user.username, id: user.id, role: user.role },
       "importantsecret"
     );
-    res.json({ token: accessToken, username: username, id: user.id });
+    res.json({ token: accessToken, username: username, id: user.id, role: user.role });
   } catch (error) {
     res.status(500).json({ error: "Login failed" });
   }

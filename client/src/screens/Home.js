@@ -6,20 +6,20 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   // Comentarios modificados:
-  const [users, setusers] = useState([]);
+  // const [users, setusers] = useState([]);
   const [applicants, setApplicants] = useState([]);
 
   let navigate = useNavigate();
 
   useEffect(() => {
-    // Realizar una solicitud GET para obtener usuarios (usuarios)
-    axios.get("http://localhost:3000/users")
-      .then((response) => {
-        setusers(response.data);
-      })
-      .catch((error) => {
-        console.error('Error al obtener usuarios:', error);
-      });
+    // // Realizar una solicitud GET para obtener usuarios (usuarios)
+    // axios.get("http://localhost:3000/users")
+    //   .then((response) => {
+    //     setusers(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error al obtener usuarios:', error);
+    //   });
   
     // Realizar una solicitud GET para obtener solicitantes (applicants)
     axios.get('http://localhost:3000/applicant')
@@ -34,16 +34,7 @@ const Home = () => {
   return (
     <div className="app">
       {/* Comentarios modificados: */}
-      <div>
-        <h2>Usuarios</h2>
-        {users.map((value, key) => (
-          <div className="users" key={key}>
-            <div className="username"> {value.username} </div>
-            <div className="email">{value.email}</div>
-            <div className="password">{value.password}</div>
-          </div>
-        ))}
-      </div>
+      
 
       <div>
         <h2>Solicitantes</h2>

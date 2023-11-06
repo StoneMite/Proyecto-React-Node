@@ -135,6 +135,5 @@ module.exports = (sequelize, DataTypes) => {
     // Asociación con User
     models.Applicant.belongsTo(models.User);
   };
-
   return Applicant;
 };

@@ -26,14 +26,15 @@ const { verify } = require("jsonwebtoken");
 
 const validateToken = (req, res, next) => {
   const accessToken = req.header("accessToken");
-
+  // console.log("Token de acceso no encontrado en el encabezado.");
   if (!accessToken) return res.json({ error: "User not logged in! desde el servidor" });
 
   try {
     const validToken = verify(accessToken, "importantsecret");
     req.user = validToken;
-    return next();
+    next();
   } catch (err) {
+    console.error("Error al verificar el token:", err);
     return res.json({ error: "Invalid token" });
   }
 };

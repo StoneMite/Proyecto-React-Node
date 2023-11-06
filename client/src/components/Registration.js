@@ -63,26 +63,30 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import styles from './Registration.module.css';
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 function Registration() {
-  const initialValues = {
-    username: "",
-    password: "",
-    role: "", // Agrega un campo para el rol en el formulario
-  };
-
-  const validationSchema = Yup.object().shape({
-    username: Yup.string().min(3).max(15).required(),
-    password: Yup.string().min(4).max(20).required(),
-    role: Yup.string().required(), // Valida que el rol no esté vacío
-  });
-
-  const onSubmit = (data) => {
-    axios.post("http://localhost:3000/auth/register", data).then(() => {
-      console.log(data);
-    }); 
-  };
-
+    const initialValues = {
+      username: "",
+      password: "",
+      role: "",
+    };
+  
+    const validationSchema = Yup.object().shape({
+      username: Yup.string().min(3).max(15).required(),
+      password: Yup.string().min(4).max(20).required(),
+      role: Yup.string().required(),
+    });
+  
+    const navigate = useNavigate(); // Obtén la función navigate
+  
+    const onSubmit = (data) => {
+      axios.post("http://localhost:3000/auth/register", data).then(() => {
+        // Registro exitoso, redirige al usuario
+        console.log(data);
+        navigate("/"); // Redirige al usuario a la página de inicio de sesión
+      });
+    };
   return (
     <div>
       <Formik

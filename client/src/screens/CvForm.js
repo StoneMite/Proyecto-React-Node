@@ -194,11 +194,9 @@ import { AuthContext } from '../helpers/newAuthContext';
 const initialValues = {
   jobTitle: "",
   company: "",
-  startDate: "",
-  endDate: "",
   description: "",
   skills: "",
-  education: "",
+  education: "Media",
   yearsExperience: 0,
   languageSkills: "",
   certifications: "",
@@ -258,6 +256,14 @@ const CvForm = () => {
       });
   }, [setAuthState]);
 
+  const educationOptions = [
+    "Media",
+    "Universitario",
+    "Posgrado",
+    "Otro",
+  ];
+  
+
   if (isLoading) {
     return (
       <div>
@@ -306,15 +312,17 @@ const CvForm = () => {
               <ErrorMessage name="description" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Education:</label>
-              <Field
-                autoComplete="off"
-                id="inputCreateApplicant"
-                name="education"
-                placeholder="(Ex. Education...)"
-              />
-              <ErrorMessage name="education" component="span" className={styles.error} />
+            <label>Education:</label>
+            <Field as="select" id="inputCreateApplicant" name="education">
+              {educationOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Field>
+            <ErrorMessage name="education" component="span" className={styles.error} />
             </div>
+
             <div className={styles.formRow}>
               <label>Years of Experience:</label>
               <Field
