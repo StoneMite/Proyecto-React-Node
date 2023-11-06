@@ -87,6 +87,10 @@ const UserDashboard = () => {
               <div className={styles.Label}>Seccion:</div>
               <div className={styles.Value}>{value.seccion}</div>
             </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Años de experiencia:</div>
+              <div className={styles.Value}>{value.yearsExperience}</div>
+            </div>
           </div>
         ))}
       </div>

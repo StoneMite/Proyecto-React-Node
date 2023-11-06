@@ -617,7 +617,7 @@
 // }
 
 // export default CVRegistration;
-///////////////////////el de abajo es el bueno//////////
+/////////////////////el de abajo es el bueno//////////
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../helpers/newAuthContext';
@@ -638,12 +638,15 @@ const CVRegistration = () => {
         Authorization: `Bearer ${accessToken}`,
       },
     })
+      
       .then((response) => {
         setHasCV(!!response.data);
         setIsLoading(false);
+        console.log("la llave es: ", accessToken);
         console.log("Respuesta del servidor:", response.data);
         console.log("verificamos authState:", authState);
         console.log("otra vez verificamos authState.status:", authState.status);
+        
       })
       .catch((error) => {
         console.error('Error al verificar si el usuario tiene un CV:', error);
@@ -678,7 +681,7 @@ const CVRegistration = () => {
 
   return (
     <div className="createApplicantPage">
-      {isNewUser ? ( // Si es un usuario recién registrado
+      {/* {isNewUser ? ( // Si es un usuario recién registrado
         <Link to={`/cv-form`}>
           <button className="createCvButton">Crear Curriculum</button>
         </Link>
@@ -688,16 +691,15 @@ const CVRegistration = () => {
         </Link>
       ) : (
         <p>No se pudo determinar el estado del usuario.</p>
-      )}
-      {/* <Link to={`/cv-form/${authState.id}`}>
+      )} */}
+      <Link to={`/cv-form/${authState.id}`}>
            <button className="createCvButton">Crear Curriculum</button>
       </Link>
       <Link to={`/cv-edit-form/${authState.id}`}>
          <button className="editCvButton">Editar Curriculum</button>
-      </Link> */}
+      </Link>
     </div>
   );
 }
 
 export default CVRegistration;
-

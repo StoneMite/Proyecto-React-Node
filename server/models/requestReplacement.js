@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      yearsExperience: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     });
   
     return RequestReplacement;

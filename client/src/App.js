@@ -109,6 +109,8 @@ import RequestReplacementUnique from './screens/RequestReplacementUnique';
 // import CvEdit from './screens/CvEdit';
 import CvForm from './screens/CvForm';
 import CvEditForm from './screens/CvEditForm';
+import PunctuationCalculator from './screens/Punctuation';
+import RequestScores from './screens/RequestScores';
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -160,6 +162,13 @@ function App() {
             {/* {authState.status && (
               <Link to="/CvEdit">Editar CV</Link>
             )} */}
+            {authState.status && (
+              <Link to="/calculate-score">Calcular puntuacion</Link>
+            )}
+
+            {authState.status && (
+              <Link to="/calculate-scores">Calcular Ponderacion</Link>
+            )}
 
             {authState.status && (
               <Link to="/adminDashboard">Admin Home</Link>
@@ -196,6 +205,11 @@ function App() {
               {/* <Route path="/CvEdit" element={<CvEdit/>}/> */}
               <Route path="/cv-form/:id" element={<CvForm />} />
               <Route path="/cv-edit-form/:id" element={<CvEditForm />} />
+              {/* {una sola puntuacion} */}
+              <Route path="/calculate-score" element={<PunctuationCalculator />} />
+              {/* todas las puntuaciones */}
+              <Route path="/calculate-scores" element={<RequestScores />} />
+              
             </Routes>
           </div>
         </Router>

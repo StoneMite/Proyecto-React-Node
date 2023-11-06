@@ -16,6 +16,7 @@ const initialValues = {
   seniority: '',
   duracionTrabajo: '',
   seccion: '',
+  yearsExperience: 0,
 };
 
 const validationSchema = Yup.object().shape({
@@ -129,6 +130,11 @@ if (authState.role === 'admin') {
             <label>Sección:</label>
             <Field type="text" id="inputSeccion" name="seccion" />
             <ErrorMessage name="seccion" component="div" />
+          </div>
+          <div className={styles.formRow}>
+            <label>Años de experiencia:</label>
+            <Field type="number" id="inputYears" name="yearsExperience" />
+            <ErrorMessage name="yearsExperience" component="div" />
           </div>
           <div className={styles.formRow}>
             <button type="submit" className={styles.submitButton}>Crear Solicitud</button>
