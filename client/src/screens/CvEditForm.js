@@ -147,7 +147,7 @@ const EditCvForm = (props) => {
 
   const handleEditCv = (values) => {
     axios
-      .put(`http://localhost:3000/applicant/updateByID/${applicantId}`, values)
+      .put(`http://localhost:3000/applicant`, values)
       .then((response) => {
         console.log('Currículum actualizado:', response.data);
         // Puedes redirigir al usuario a una página de perfil o a donde desees.

@@ -1,13 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const ApplicantApplication = sequelize.define("ApplicantApplication", {
-      applicantId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      requestId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       applicationDate: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
@@ -22,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       });
   
       // Asociación con RequestReplacement
-      models.ApplicantApplication.belongsTo(models.RequestReplacements, {
+      models.ApplicantApplication.belongsTo(models.RequestReplacement, {
         foreignKey: 'requestId', // Asegúrate de que el nombre de la columna sea correcto
       });
   

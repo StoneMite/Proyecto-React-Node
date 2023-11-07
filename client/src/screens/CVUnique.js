@@ -8,7 +8,7 @@ const CVUnique = () => {
   const [uniqueCV, setUniqueCV] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/applicant/byID/${id}`)
+    axios.get(`http://localhost:3000/applicant/obtainByID/${id}`)
       .then((response) => {
         setUniqueCV(response.data);
       })

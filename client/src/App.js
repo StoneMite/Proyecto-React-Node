@@ -166,9 +166,9 @@ function App() {
               <Link to="/calculate-score">Calcular puntuacion</Link>
             )}
 
-            {authState.status && (
+            {/* {authState.status && (
               <Link to="/calculate-scores">Calcular Ponderacion</Link>
-            )}
+            )} */}
 
             {authState.status && (
               <Link to="/adminDashboard">Admin Home</Link>

@@ -1,31 +1,31 @@
-// PunctuationCalculator.js
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const RequestScores = () => {
   const [puntuaciones, setPuntuaciones] = useState([]);
+  const { applicantId } = useParams(); // Utiliza 'useParams' para obtener el ID del solicitante desde la URL
 
-  const calculateScores = async () => {
+  const calculateScores = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:3000/calculate-scores/'); // Ruta para calcular todas las puntuaciones
+      const response = await axios.get(`http://localhost:3000/calculate-scores/${applicantId}`);
       setPuntuaciones(response.data);
     } catch (error) {
       console.error('Error al calcular las puntuaciones:', error);
     }
-  };
+  }, [applicantId]);
 
   useEffect(() => {
     calculateScores();
-  }, []);
+  }, [calculateScores, applicantId]);
 
   return (
     <div>
-      <h2>Calcular Puntuaciones</h2>
-      <button onClick={calculateScores}>Calcular Todas las Puntuaciones</button>
+      <h2>Calcular Puntuaciones para Solicitante {applicantId}</h2>
+      <button onClick={calculateScores}>Calcular Puntuaciones</button>
       <ul>
         {puntuaciones.map((puntuacion) => (
-          <li key={puntuacion.applicantId}>Solicitante {puntuacion.applicantId}: {puntuacion.totalScore}</li>
+          <li key={puntuacion.applicantId}>Solicitante {puntuacion.applicantId}: Puntuación: {puntuacion.totalScore}</li>
         ))}
       </ul>
     </div>

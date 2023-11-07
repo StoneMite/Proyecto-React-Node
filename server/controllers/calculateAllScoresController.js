@@ -160,13 +160,6 @@ const calculateTotalScore = (applicant, solicitudReemplazo) => {
     console.log('Título no coincide para el solicitante:', applicant.id);
   }
 
-  // Comparar el jobTitle del solicitante con el requerido en la solicitud
-  if (applicant.jobTitle === solicitudReemplazo.titulo) {
-    totalScore += 10; // Asignar 10 puntos si el jobTitle coincide.
-  } else {
-    console.log('JobTitle no coincide para el solicitante:', applicant.id);
-  }
-
   // Comparar "yearsExperience" del solicitante con el de la solicitud de reemplazo
   if (applicant.yearsExperience < solicitudReemplazo.yearsExperience) {
     totalScore += 5; // Otorgar 5 puntos si los años de experiencia son menores.
@@ -174,23 +167,56 @@ const calculateTotalScore = (applicant, solicitudReemplazo) => {
     totalScore += 10; // Otorgar 10 puntos si los años de experiencia son mayores o iguales.
   }
 
+  // Calcular la puntuación de la educación y asignarla
+  const educationScore = calculateEducationScore(applicant.education);
+  totalScore += educationScore;
+
   console.log('Total Score para el solicitante:', applicant.id, 'es', totalScore);
 
   return totalScore;
 };
 
+// Función para calcular la puntuación de la educación
+const calculateEducationScore = (education) => {
+  // Implementa la lógica para puntuar la educación aquí
+  // Por ejemplo, si la educación es "Bachillerato", otorgar 10 puntos; si es "Licenciatura", otorgar 20 puntos; de lo contrario, otorgar 0 puntos.
+  if (education === "Bachillerato") {
+    return 10;
+  } else if (education === "Licenciatura") {
+    return 20;
+  } else {
+    return 0;
+  }
+};
+
+// Función para calcular la puntuación de la experiencia laboral
+const calculateExperienceScore = (yearsExperience) => {
+  // Implementa la lógica para puntuar la experiencia laboral aquí
+  // Por ejemplo, otorgar 20 puntos si hay más de 5 años de experiencia; de lo contrario, otorgar 10 puntos.
+  if (yearsExperience > 5) {
+    return 20;
+  } else {
+    return 10;
+  }
+};
+
 const calculateAllScores = async (req, res) => {
   console.log('Recibida solicitud de cálculo de puntuaciones');
   try {
+    const solicitudReemplazoId = req.params.solicitudReemplazoId; // Obtén el ID de la solicitud de reemplazo desde los parámetros de la solicitud
+    const solicitudReemplazo = await RequestReplacement.findByPk(solicitudReemplazoId);
+
+    if (!solicitudReemplazo) {
+      return res.status(404).json({ error: "Solicitud de reemplazo no encontrada" });
+    }
+
     const applicants = await Applicant.findAll();
-    const solicitudReemplazo = await RequestReplacement.findOne(); // Obtener la solicitud de reemplazo activa
-    console.log('Solicitud de reemplazo activa:', solicitudReemplazo);
 
     await Promise.all(
       applicants.map(async (applicant) => {
         const totalScore = calculateTotalScore(applicant, solicitudReemplazo);
         // Actualizar o crear un registro en la tabla Punctuation
-        const punctuation = await Punctuation.findOne({ where: { applicantId: applicant.id } });
+        let punctuation = await Punctuation.findOne({ where: { applicantId: applicant.id } });
         if (punctuation) {
           // Si el registro ya existe, actualiza el totalScore
           await punctuation.update({ totalScore });
