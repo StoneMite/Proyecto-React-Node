@@ -1,35 +1,35 @@
-import React, { useState, useEffect, useCallback } from 'react';
+// CVList.js
+
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
-const RequestScores = () => {
-  const [puntuaciones, setPuntuaciones] = useState([]);
-  const { applicantId } = useParams(); // Utiliza 'useParams' para obtener el ID del solicitante desde la URL
-
-  const calculateScores = useCallback(async () => {
-    try {
-      const response = await axios.get(`http://localhost:3000/calculate-scores/${applicantId}`);
-      setPuntuaciones(response.data);
-    } catch (error) {
-      console.error('Error al calcular las puntuaciones:', error);
-    }
-  }, [applicantId]);
+const CVList = () => {
+  const [curriculumList, setCurriculumList] = useState([]);
 
   useEffect(() => {
-    calculateScores();
-  }, [calculateScores, applicantId]);
+    axios.get("http://localhost:3000/calculate-scores/")
+      .then((response) => {
+        setCurriculumList(response.data);
+      })
+      .catch((error) => {
+        console.error('Error al obtener los currículums con puntuaciones:', error);
+      });
+  }, []);
 
   return (
     <div>
-      <h2>Calcular Puntuaciones para Solicitante {applicantId}</h2>
-      <button onClick={calculateScores}>Calcular Puntuaciones</button>
+      <h2>Lista de Currículums con Puntuación </h2>
       <ul>
-        {puntuaciones.map((puntuacion) => (
-          <li key={puntuacion.applicantId}>Solicitante {puntuacion.applicantId}: Puntuación: {puntuacion.totalScore}</li>
+        {curriculumList.map((item) => (
+          <li key={item.applicant.id}>
+            <h3>{item.applicant.jobTitle}</h3>
+            <p>Postulante: {item.applicant.id} | Puntuación Total: {item.totalScore}</p>
+            {/* Muestra otros detalles del currículum según tus necesidades */}
+          </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 
-export default RequestScores;
+export default CVList;

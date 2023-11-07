@@ -32,11 +32,8 @@ app.use("/punctuation", punctuationRouter);
 const calculateAllScoresRouter = require("./routes/calculateAllScoresController");
 app.use("/calculate-scores", calculateAllScoresRouter);
 
-const postulationRouter = require("./routes/postulationController");
+const postulationRouter = require("./routes/postulation");
 app.use("/postulate", postulationRouter);
-
-// const applicant_applicationRouter = require("./routes/applicant_application");
-// app.use("/apply-for-request", applicant_applicationRouter);
 
 
 db.sequelize.sync().then(() => {

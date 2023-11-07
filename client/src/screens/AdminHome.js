@@ -1,20 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import { AuthContext } from '../helpers/newAuthContext';
-import axios from 'axios'; // Importa Axios
+// import { useNavigate } from 'react-router-dom';
+import styles from './UserHome.module.css';
 
-const AdminDashboard = () => {
-  const { authState, setAuthState } = useContext(AuthContext); // Importa setAuthState del contexto
+const AdminHome= () => {
+  const [requests, setRequests] = useState([]);
+  const { authState, setAuthState } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
 
+  // let navigate = useNavigate();
+
   useEffect(() => {
-    // Realiza la carga de datos del usuario de forma síncrona
-    axios
-      .get('http://localhost:3000/auth/auth', {
-        headers: {
-          accessToken: localStorage.getItem('accessToken'),
-        },
-      })
+    axios.get('http://localhost:3000/requestReplacement')
       .then((response) => {
+        setRequests(response.data);
+      })
+      .catch((error) => {
+        console.error('Error al obtener las solicitudes de reemplazo en el frontend:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/auth/auth', {
+      headers: {
+        accessToken: localStorage.getItem('accessToken'),
+      },
+    })
+      .then((response) => {
+        console.log("Respuesta del servidor en userhome:", response.data);
         if (!response.data.error) {
           setAuthState({
             username: response.data.username,
@@ -23,12 +37,10 @@ const AdminDashboard = () => {
             role: response.data.role,
           });
         }
-        setIsLoading(false); // Marca la carga como completa
+        setIsLoading(false);
       });
-  }, [setAuthState]); // Agrega setAuthState al arreglo de dependencias
-  
+  }, [setAuthState]);
 
-  // Muestra un indicador de carga mientras se obtienen los datos del usuario
   if (isLoading) {
     return (
       <div>
@@ -37,21 +49,60 @@ const AdminDashboard = () => {
     );
   }
 
-  // Verifica si el usuario tiene permisos de administrador antes de renderizar el contenido
-  if (authState.role !== 'admin') {
+  if (authState.role === 'admin') {
+    return (
+      <div className={styles.Requests}>
+        <h2>Solicitudes de Reemplazo</h2>
+        {requests.map((value, key) => ( //onClick={() => { navigate(`/requestReplacement/${value.id}`); }} key={key}
+          <div className={styles.Request} >
+            <div className={styles.Field}>
+              <div className={styles.Label}>Título:</div>
+              <div className={styles.Value}>{value.titulo}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Descripción:</div>
+              <div className={styles.Value}>{value.descripcion}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Funciones del Cargo:</div>
+              <div className={styles.Value}>{value.funcionesCargo}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Requerimientos del Cargo:</div>
+              <div className={styles.Value}>{value.requerimientosCargo}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Sueldo:</div>
+              <div className={styles.Value}>{value.sueldo}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Ubicacion:</div>
+              <div className={styles.Value}>{value.ubicacion}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>seniority:</div>
+              <div className={styles.Value}>{value.seniority}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Seccion:</div>
+              <div className={styles.Value}>{value.seccion}</div>
+            </div>
+            <div className={styles.Field}>
+              <div className={styles.Label}>Años de experiencia:</div>
+              <div className={styles.Value}>{value.yearsExperience}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  } else {
     return (
       <div>
         <h1 className="text-center">Access Denied</h1>
       </div>
     );
   }
+};
 
-  return (
-    <div>
-      <h1 className="text-center">access to Admin Dashboard</h1><br/>
-      {/* Agrega aquí el contenido del dashboard */}
-    </div>
-  );
-}
+export default AdminHome;
 
-export default AdminDashboard;

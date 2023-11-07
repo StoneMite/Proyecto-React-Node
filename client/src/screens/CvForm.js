@@ -263,7 +263,21 @@ const CvForm = () => {
     "Otro",
   ];
   
+  const habilitiesOptions = [
+    "Trabajo en equipo",
+    "Comunicación asertiva",
+    "Liderazgo",
+    "Resiliencia",
+  ];
 
+
+  const languageLevels = [
+    "Ingles",
+    "Español",
+    "Aleman",
+    "Frances",
+];
+  
   if (isLoading) {
     return (
       <div>
@@ -282,7 +296,7 @@ const CvForm = () => {
         >
           <Form className={styles.formContainer}>
             <div className={styles.formRow}>
-              <label>Job Title:</label>
+              <label>Nombre Completo:</label>
               <Field
                 autoComplete="off"
                 id="inputCreateApplicant"
@@ -292,9 +306,9 @@ const CvForm = () => {
               <ErrorMessage name="jobTitle" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Company:</label>
+              <label>Gmail:</label>
               <Field
-                autoComplete="off"
+                type="email"
                 id="inputCreateApplicant"
                 name="company"
                 placeholder="(Ex. Company...)"
@@ -302,7 +316,7 @@ const CvForm = () => {
               <ErrorMessage name="company" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Description:</label>
+              <label>Descripcion:</label>
               <Field
                 autoComplete="off"
                 id="inputCreateApplicant"
@@ -312,7 +326,7 @@ const CvForm = () => {
               <ErrorMessage name="description" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-            <label>Education:</label>
+            <label>Educacion:</label>
             <Field as="select" id="inputCreateApplicant" name="education">
               {educationOptions.map((option) => (
                 <option key={option} value={option}>
@@ -324,7 +338,7 @@ const CvForm = () => {
             </div>
 
             <div className={styles.formRow}>
-              <label>Years of Experience:</label>
+              <label>Años de Experiencia:</label>
               <Field
                 autoComplete="off"
                 type="number"
@@ -334,17 +348,19 @@ const CvForm = () => {
               <ErrorMessage name="yearsExperience" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Language Skills:</label>
-              <Field
-                autoComplete="off"
-                id="inputCreateApplicant"
-                name="languageSkills"
-                placeholder="(Ex. Language Skills...)"
-              />
-              <ErrorMessage name="languageSkills" component="span" className={styles.error} />
+              <label>Idioma:</label>
+              <Field as="select" id="inputCreateApplicant" name="language">
+              {languageLevels.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Field>
+              <ErrorMessage name="language" component="span" className={styles.error} />
             </div>
+
             <div className={styles.formRow}>
-              <label>Certifications:</label>
+              <label>Certificaciones:</label>
               <Field
                 autoComplete="off"
                 id="inputCreateApplicant"
@@ -354,15 +370,17 @@ const CvForm = () => {
               <ErrorMessage name="certifications" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Technical Skills:</label>
-              <Field
-                autoComplete="off"
-                id="inputCreateApplicant"
-                name="technicalSkills"
-                placeholder="(Ex. Technical Skills...)"
-              />
+              <label>Habilidades Blandas:</label>
+              <Field as="select" id="inputCreateApplicant" name="technicalSkills">
+                {habilitiesOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Field>
               <ErrorMessage name="technicalSkills" component="span" className={styles.error} />
             </div>
+
             <div className={styles.formRow}>
               <button type="submit" className={styles.submitButton}> Subir Registro de CV</button>
             </div>

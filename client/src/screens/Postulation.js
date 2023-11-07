@@ -1,35 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import styles from './CVUnique.module.css';
 import axios from 'axios';
+import { AuthContext } from '../helpers/newAuthContext';
 
-const Postulation = ({ applicantId, requestId, onPostulationSuccess }) => {
-  const [isPostulated, setIsPostulated] = useState(false);
+const Postulation = ({ requestId }) => {
+  const [solicitudEnviada, setSolicitudEnviada] = useState(false);
+  const { authState } = useContext(AuthContext);
 
-  const handlePostulation = () => {
-    axios.post(`http://localhost:3000/apply-for-request`, {
-      applicantId: applicantId,
-      requestId: requestId,
-    })
-      .then((response) => {
-        setIsPostulated(true);
-        onPostulationSuccess(); // Llama a la función de éxito pasada como prop
-      })
-      .catch((error) => {
-        console.error('Error al postular:', error);
-      });
+  const handlePostularClick = () => {
+    if (authState.status && !solicitudEnviada) {
+      axios.post(`http://localhost:3000/postulate/${requestId}/apply`)
+        .then((response) => {
+          setSolicitudEnviada(true);
+        })
+        .catch((error) => {
+          console.error('Error al postularse:', error);
+        });
+    }
   };
 
-  return (
-    <div>
-      {!isPostulated ? (
-        <div>
-          <button onClick={handlePostulation}>Postular</button>
-        </div>
-      ) : (
-        <div>
-          <p>¡Postulación realizada con éxito!</p>
-        </div>
-      )}
-    </div>
+  return solicitudEnviada ? (
+    <div className={styles.SolicitudEnviada}>Solicitud Enviada</div>
+  ) : (
+    <button onClick={handlePostularClick}>Postular</button>
   );
 }
 
