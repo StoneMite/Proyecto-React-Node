@@ -35,6 +35,10 @@ app.use("/calculate-scores", calculateAllScoresRouter);
 const postulationRouter = require("./routes/postulationController");
 app.use("/postulate", postulationRouter);
 
+// const applicant_applicationRouter = require("./routes/applicant_application");
+// app.use("/apply-for-request", applicant_applicationRouter);
+
+
 db.sequelize.sync().then(() => {
   app.listen(3000, () => {
     console.log("Server running on port 3000");

@@ -1,13 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const ApplicantApplication = sequelize.define("ApplicantApplication", {
-      applicantId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      requestId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       applicationDate: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
