@@ -1,81 +1,88 @@
 /* Estilo para el contenedor principal */
 .createApplicantPage {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createApplicantPage h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}  
+/* Estilo para el formulario */
+.formContainer {
+  width: 300px;
+  margin: 20px auto;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #213f5fb0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0), 0 6px 20px;
+}
+
+/* Estilo para las etiquetas de los campos */
+.formContainer label {
+  width: auto;
+  font-weight: bold;
+  color: rgb(205, 225, 234); /* Color del texto de las eitquetas */
+}
+
+.input{
+  width:100% ;
+  height: 20px;
+  font-size: 20px;
+  border-radius:5px ;
+}
+.Years{
+  width:25% ;
+  height: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius:5px ;
+}
+
+/* Estilo para los campos de entrada
+#nombre,
+#email,
+#telefono,
+#ubicacion,
+#descripcionProfesional,
+#experienciaLaboral,
+#formacionAcademica,
+#nivelIngles,
+#habilidades,
+#seniorities,
+#linkPortafolio,
+#videoPresentacion,
+#twitter,
+#github,
+#gitlab,
+#linkedin,
+#stackOverflow {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+} */
+
+/* Estilo para los mensajes de error de validación */
+span.error {
+  color: red;
+}
+
+/* Estilo para el botón de enviar */
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
   
-  .createApplicantPage h2{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }  
-  /* Estilo para el formulario */
-  .formContainer {
-    width: 300px;
-    margin: 20px auto;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #213f5fb0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0), 0 6px 20px;
-  }
-  
-  /* Estilo para las etiquetas de los campos */
-  .formContainer label {
-    width: auto;
-    font-weight: bold;
-    color: rgb(205, 225, 234); /* Color del texto de las eitquetas */
-  }
-  
-  .input{
-    width:100% ;
-    height: 20px;
-    font-size: 20px;
-    border-radius:5px ;
-  }
-  
-  /* Estilo para los campos de entrada
-  #nombre,
-  #email,
-  #telefono,
-  #ubicacion,
-  #descripcionProfesional,
-  #experienciaLaboral,
-  #formacionAcademica,
-  #nivelIngles,
-  #habilidades,
-  #seniorities,
-  #linkPortafolio,
-  #videoPresentacion,
-  #twitter,
-  #github,
-  #gitlab,
-  #linkedin,
-  #stackOverflow {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  } */
-  
-  /* Estilo para los mensajes de error de validación */
-  span.error {
-    color: red;
-  }
-  
-  /* Estilo para el botón de enviar */
-  button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-    

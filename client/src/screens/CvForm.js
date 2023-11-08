@@ -284,26 +284,29 @@ const CvForm = () => {
             <div className={styles.formRow}>
               <label>Job Title:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="jobTitle"
-                placeholder="(Ex. Job Title...)"
+                placeholder="(Ex. Name...)"
               />
               <ErrorMessage name="jobTitle" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
               <label>Company:</label>
               <Field
-                autoComplete="off"
+                className={styles.input}
+                type="email"
                 id="inputCreateApplicant"
                 name="company"
-                placeholder="(Ex. Company...)"
+                placeholder="(Ex. Email...)"
               />
               <ErrorMessage name="company" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
               <label>Description:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="description"
@@ -312,8 +315,8 @@ const CvForm = () => {
               <ErrorMessage name="description" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-            <label>Education:</label>
-            <Field as="select" id="inputCreateApplicant" name="education">
+            <label>Educacion:</label>
+            <Field as="select" id="inputCreateApplicant" name="education" className={styles.input}>
               {educationOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -323,9 +326,10 @@ const CvForm = () => {
             <ErrorMessage name="education" component="span" className={styles.error} />
             </div>
 
-            <div className={styles.formRow}>
-              <label>Years of Experience:</label>
+            <div className={styles.Date}>
+              <label>Años de Experiencia:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 type="number"
                 id="inputCreateApplicant"
@@ -334,18 +338,20 @@ const CvForm = () => {
               <ErrorMessage name="yearsExperience" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Language Skills:</label>
-              <Field
-                autoComplete="off"
-                id="inputCreateApplicant"
-                name="languageSkills"
-                placeholder="(Ex. Language Skills...)"
-              />
-              <ErrorMessage name="languageSkills" component="span" className={styles.error} />
+              <label>Idioma:</label>
+              <Field as="select" id="inputCreateApplicant" name="language" className={styles.input}>
+              {languageLevels.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Field>
+              <ErrorMessage name="language" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
               <label>Certifications:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="certifications"
@@ -354,13 +360,14 @@ const CvForm = () => {
               <ErrorMessage name="certifications" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Technical Skills:</label>
-              <Field
-                autoComplete="off"
-                id="inputCreateApplicant"
-                name="technicalSkills"
-                placeholder="(Ex. Technical Skills...)"
-              />
+              <label>Habilidades Blandas:</label>
+              <Field as="select" id="inputCreateApplicant" name="technicalSkills" className={styles.input}>
+                {habilitiesOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Field>
               <ErrorMessage name="technicalSkills" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>

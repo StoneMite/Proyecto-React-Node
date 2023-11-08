@@ -1,20 +1,22 @@
-.data{
+.loginContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 300px;
     margin: 100px;
+    padding-top: 120px;
 }
 
-.data input{
-    width:100% ;
+.loginContainer input{
+    flex-direction: column;
+    width:300px ;
     height: 20px;
     font-size: 20px;
     border-radius:5px ;
 }
 
-.data label{
+.loginContainer label{
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(205, 225, 234);

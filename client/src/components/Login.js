@@ -56,7 +56,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/newAuthContext";
-import styles from "./Login.module.css";
+import styles from './Login.module.css';
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -89,15 +89,15 @@ function Login() {
 
   
   return (
-    <div className={styles.data}>
-      <label>Username:</label>
+    <div className={styles.loginContainer}>
+      <label>Nombre de usuario:</label>
       <input
         type="text"
         onChange={(event) => {
           setUsername(event.target.value);
         }}
       />
-      <label>Password:</label>
+      <label>Contraseña:</label>
       <input
         type="password"
         onChange={(event) => {
@@ -105,7 +105,7 @@ function Login() {
         }}
       />
 
-      <button onClick={login} className={styles.submitButton}> Iniciar sesión </button>
+      <button onClick={login}> Iniciar sesión </button>
     </div>
   );
 }

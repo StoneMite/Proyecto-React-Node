@@ -151,40 +151,48 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Router>
-          <div className="navbar">
-            <Link to="/">Home page</Link>
-            {authState.status && (
-              <Link to="/CVRegister">CV Registration</Link>
-            )}
-            {authState.status && (
-              <Link to="/cv-form/:id">CV formulario</Link>
-            )}
-            {/* {authState.status && (
-              <Link to="/CvEdit">Editar CV</Link>
-            )} */}
-            {authState.status && (
-              <Link to="/calculate-score">Calcular puntuacion</Link>
-            )}
+        <div className="navbar">
+  <Link to="/">Empleos Disponibles</Link>
+  {authState.status && authState.role === 'user' && (
+    <Link to="/CVRegister">Crear Curriculum</Link>
+  )}
+  {authState.status && authState.role === 'user' && (
+    <Link to="/ViewCv">Ver Curriculum</Link>
+  )}
+  {/* Verifica si el rol del usuario es "admin" o "user" para mostrar los enlaces relacionados a administrador o usuario */}
+  {authState.status && authState.role === 'admin' && (
+    <Link to="/adminDashboard">Admin Home</Link>
+  )}
+  {authState.status && authState.role === 'user' && (
+    <Link to="/userDashboard">User Home</Link>
+  )}
+  
 
-            {/* {authState.status && (
-              <Link to="/calculate-scores">Calcular Ponderacion</Link>
-            )} */}
+  {/* Muestra el enlace de solicitud de reemplazo solo si el rol del usuario es "admin" */
+  authState.status && authState.role === 'admin' && (
+    <Link to="/adminRequestReplacement">Solicitud de Reemplazo</Link>
+  )}
+  
 
-            {authState.status && (
-              <Link to="/adminDashboard">Admin Home</Link>
-            )}
+  {authState.status && authState.role === 'admin' && (
+    <Link to="/calculate-scores">Lista</Link>
+  )}
 
-            {authState.status && (
-              <Link to="/userDashboard">User Home</Link>
-            )}
+  {authState.status && authState.role === 'admin' &&(
+    <Link to="/calculate-score">Calcular puntaje</Link>
+  )}
 
-            {/* Siempre muestra los enlaces de registro y login */}
-            <Link to="/login">Iniciar Sesion</Link>
-            <Link to="/registration">Registrar</Link>
-            {authState.status && (
-              <Link to="/adminRequestReplacement">Solicitud de Reemplazo</Link>
-            )}
-          </div>
+  {/* Oculta los enlaces de login y registro cuando el rol es "user" o "admin" */}
+  {(!authState.status || (authState.role !== 'user' && authState.role !== 'admin')) && (
+    <Link to="/login">Iniciar Sesión</Link>
+  )}
+  {(!authState.status || (authState.role !== 'user' && authState.role !== 'admin')) && (
+    <Link to="/registration">Registrarse</Link>
+  )}
+
+  
+</div>
+
           <div className="loggedInContainer">
             <h1>{authState.username}</h1>
             {authState.status && <button onClick={logout}>Logout</button>}

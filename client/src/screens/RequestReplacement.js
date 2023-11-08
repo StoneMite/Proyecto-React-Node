@@ -94,12 +94,12 @@ if (authState.role === 'admin') {
           </div>
           <div className={styles.formRow}>
             <label>Descripción del Trabajo:</label>
-            <Field className={styles.input} as="textarea" id="inputDescription" name="descripcion" />
+            <Field className={styles.input}  as="textarea" id="inputDescription" name="descripcion" />
             <ErrorMessage name="descripcion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Funciones del Cargo:</label>
-            <Field className={styles.input} as="textarea" id="inputFuncionesCargo" name="funcionesCargo" />
+            <Field className={styles.input}  as="textarea" id="inputFuncionesCargo" name="funcionesCargo" />
             <ErrorMessage name="funcionesCargo" component="div" />
           </div>
           <div className={styles.formRow}>
@@ -109,31 +109,31 @@ if (authState.role === 'admin') {
           </div>
           <div className={styles.formRow}>
             <label>Sueldo:</label>
-            <Field className={styles.input} type="text" id="inputSueldo" name="sueldo" />
+            <Field className={styles.input}  type="text" id="inputSueldo" name="sueldo" />
             <ErrorMessage name="sueldo" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Ubicación:</label>
-            <Field className={styles.input}type="text" id="inputUbicacion" name="ubicacion" />
+            <Field className={styles.input} type="text" id="inputUbicacion" name="ubicacion" />
             <ErrorMessage name="ubicacion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Seniority:</label>
-            <Field className={styles.input} type="text" id="inputSeniority" name="seniority" />
+            <Field className={styles.input}  type="text" id="inputSeniority" name="seniority" />
             <ErrorMessage name="seniority" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Duración del Trabajo:</label>
-            <Field className={styles.input} type="text" id="inputDuracionTrabajo" name="duracionTrabajo" />
+            <Field className={styles.input}  type="text" id="inputDuracionTrabajo" name="duracionTrabajo" />
           </div>
           <div className={styles.formRow}>
             <label>Sección:</label>
-            <Field className={styles.input} type="text" id="inputSeccion" name="seccion" />
+            <Field className={styles.input}  type="text" id="inputSeccion" name="seccion" />
             <ErrorMessage name="seccion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Años de experiencia:</label>
-            <Field type="number" id="inputYears" name="yearsExperience" />
+            <Field className={styles.Years} type="number" id="inputYears" name="yearsExperience" />
             <ErrorMessage name="yearsExperience" component="div" />
           </div>
           <div className={styles.formRow}>
