@@ -63,6 +63,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import styles from'./Registration.module.css';
 
 function Registration() {
     const initialValues = {
@@ -93,36 +94,39 @@ function Registration() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="formContainer">
-          <label>Username: </label>
+        <Form className={styles.formContainer}>
+          <label>Nombre de usuario: </label>
           <ErrorMessage name="username" component="span" />
           <Field
+            className={styles.Username}
             autoComplete="off"
             id="inputUsername"
             name="username"
             placeholder="(Ex. John123...)"
           />
 
-          <label>Password: </label>
+          <label>Contraseña: </label>
           <ErrorMessage name="password" component="span" />
           <Field
+            className={styles.Password}
             autoComplete="off"
             type="password"
             id="inputPassword"
             name="password"
-            placeholder="Your Password..."
+            placeholder="Tu Contraseña..."
           />
 
-          <label>Role: </label>
+          <label>Rol: </label>
           <ErrorMessage name="role" component="span" />
           <Field
+            className={styles.Role}
             autoComplete="off"
             id="inputRole"
             name="role"
-            placeholder="User or Admin" // Ajusta esto según tus roles
+            placeholder="user / admin" // Ajusta esto según tus roles
           />
 
-          <button type="submit"> Register</button>
+          <button type="submit"> Crear cuenta</button>
         </Form>
       </Formik>
     </div>

@@ -277,7 +277,7 @@ const CvForm = () => {
     "Aleman",
     "Frances",
 ];
-  
+
   if (isLoading) {
     return (
       <div>
@@ -296,28 +296,31 @@ const CvForm = () => {
         >
           <Form className={styles.formContainer}>
             <div className={styles.formRow}>
-              <label>Nombre Completo:</label>
+              <label>Job Title:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="jobTitle"
-                placeholder="(Ex. Job Title...)"
+                placeholder="(Ex. Name...)"
               />
               <ErrorMessage name="jobTitle" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
               <label>Gmail:</label>
               <Field
+                className={styles.input}
                 type="email"
                 id="inputCreateApplicant"
                 name="company"
-                placeholder="(Ex. Company...)"
+                placeholder="(Ex. Email...)"
               />
               <ErrorMessage name="company" component="span" className={styles.error} />
             </div>
             <div className={styles.formRow}>
-              <label>Descripcion:</label>
+              <label>Description:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="description"
@@ -327,7 +330,7 @@ const CvForm = () => {
             </div>
             <div className={styles.formRow}>
             <label>Educacion:</label>
-            <Field as="select" id="inputCreateApplicant" name="education">
+            <Field as="select" id="inputCreateApplicant" name="education" className={styles.input}>
               {educationOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -337,9 +340,10 @@ const CvForm = () => {
             <ErrorMessage name="education" component="span" className={styles.error} />
             </div>
 
-            <div className={styles.formRow}>
+            <div className={styles.Date}>
               <label>Años de Experiencia:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 type="number"
                 id="inputCreateApplicant"
@@ -349,7 +353,7 @@ const CvForm = () => {
             </div>
             <div className={styles.formRow}>
               <label>Idioma:</label>
-              <Field as="select" id="inputCreateApplicant" name="language">
+              <Field as="select" id="inputCreateApplicant" name="language" className={styles.input}>
               {languageLevels.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -358,10 +362,10 @@ const CvForm = () => {
             </Field>
               <ErrorMessage name="language" component="span" className={styles.error} />
             </div>
-
             <div className={styles.formRow}>
-              <label>Certificaciones:</label>
+              <label>Certifications:</label>
               <Field
+                className={styles.input}
                 autoComplete="off"
                 id="inputCreateApplicant"
                 name="certifications"
@@ -371,7 +375,7 @@ const CvForm = () => {
             </div>
             <div className={styles.formRow}>
               <label>Habilidades Blandas:</label>
-              <Field as="select" id="inputCreateApplicant" name="technicalSkills">
+              <Field as="select" id="inputCreateApplicant" name="technicalSkills" className={styles.input}>
                 {habilitiesOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -380,7 +384,6 @@ const CvForm = () => {
               </Field>
               <ErrorMessage name="technicalSkills" component="span" className={styles.error} />
             </div>
-
             <div className={styles.formRow}>
               <button type="submit" className={styles.submitButton}> Subir Registro de CV</button>
             </div>
@@ -398,4 +401,3 @@ const CvForm = () => {
 }
 
 export default CvForm;
-

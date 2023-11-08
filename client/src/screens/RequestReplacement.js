@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from './CVRegistration.module.css';
+import styles from './RequestReplacement.module.css';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -89,51 +89,51 @@ if (authState.role === 'admin') {
         <Form className={styles.formContainer}>
           <div className={styles.formRow}>
             <label>Título del Empleo/Cargo:</label>
-            <Field type="text" id="inputTitulo" name="titulo" />
+            <Field className={styles.input} type="text" id="inputTitulo" name="titulo" />
             <ErrorMessage name="titulo" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Descripción del Trabajo:</label>
-            <Field as="textarea" id="inputDescription" name="descripcion" />
+            <Field className={styles.input}  as="textarea" id="inputDescription" name="descripcion" />
             <ErrorMessage name="descripcion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Funciones del Cargo:</label>
-            <Field as="textarea" id="inputFuncionesCargo" name="funcionesCargo" />
+            <Field className={styles.input}  as="textarea" id="inputFuncionesCargo" name="funcionesCargo" />
             <ErrorMessage name="funcionesCargo" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Requerimientos del Cargo:</label>
-            <Field as="textarea" id="inputRequerimientosCargo" name="requerimientosCargo" />
+            <Field className={styles.input} as="textarea" id="inputRequerimientosCargo" name="requerimientosCargo" />
             <ErrorMessage name="requerimientosCargo" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Sueldo:</label>
-            <Field type="text" id="inputSueldo" name="sueldo" />
+            <Field className={styles.input}  type="text" id="inputSueldo" name="sueldo" />
             <ErrorMessage name="sueldo" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Ubicación:</label>
-            <Field type="text" id="inputUbicacion" name="ubicacion" />
+            <Field className={styles.input} type="text" id="inputUbicacion" name="ubicacion" />
             <ErrorMessage name="ubicacion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Seniority:</label>
-            <Field type="text" id="inputSeniority" name="seniority" />
+            <Field className={styles.input}  type="text" id="inputSeniority" name="seniority" />
             <ErrorMessage name="seniority" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Duración del Trabajo:</label>
-            <Field type="text" id="inputDuracionTrabajo" name="duracionTrabajo" />
+            <Field className={styles.input}  type="text" id="inputDuracionTrabajo" name="duracionTrabajo" />
           </div>
           <div className={styles.formRow}>
             <label>Sección:</label>
-            <Field type="text" id="inputSeccion" name="seccion" />
+            <Field className={styles.input}  type="text" id="inputSeccion" name="seccion" />
             <ErrorMessage name="seccion" component="div" />
           </div>
           <div className={styles.formRow}>
             <label>Años de experiencia:</label>
-            <Field type="number" id="inputYears" name="yearsExperience" />
+            <Field className={styles.Years} type="number" id="inputYears" name="yearsExperience" />
             <ErrorMessage name="yearsExperience" component="div" />
           </div>
           <div className={styles.formRow}>
