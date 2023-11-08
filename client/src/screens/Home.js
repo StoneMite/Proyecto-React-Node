@@ -144,6 +144,10 @@ const UserDashboard = () => {
               <div className={styles.Value}>{value.seniority}</div>
             </div>
             <div className={styles.Field}>
+              <div className={styles.Label}>Duracion del Trabajo:</div>
+              <div className={styles.Value}>{value.duracionTrabajo}</div>
+            </div>
+            <div className={styles.Field}>
               <div className={styles.Label}>Seccion:</div>
               <div className={styles.Value}>{value.seccion}</div>
             </div>
